@@ -16,10 +16,10 @@ MonoBehaviour:
   refType: 2
   planarSettings:
     m_ResolutionMultiplier: 1
-    m_ClipPlaneOffset: 0.079
+    m_ClipPlaneOffset: 0.24
     m_ReflectLayers:
       serializedVersion: 2
-      m_Bits: 0
+      m_Bits: 4294967295
     m_Shadows: 0
   cubemapRefType: {fileID: 8900000, guid: a90d3c9b1c3ed4d36bffc02f6b335464, type: 3}
   isInfinite: 0
