@@ -6,11 +6,8 @@ namespace DigitalRuby.RainMaker
     public class DemoScript : MonoBehaviour
     {
         public RainScript RainScript;
-        public UnityEngine.UI.Toggle MouseLookToggle;
-        public UnityEngine.UI.Toggle FlashlightToggle;
         public UnityEngine.UI.Slider RainSlider;
-        public Light Flashlight;
-        public GameObject Sun;
+        // public GameObject Sun;
 
         private enum RotationAxes { MouseXAndY = 0, MouseX = 1, MouseY = 2 }
         private RotationAxes axes = RotationAxes.MouseXAndY;
@@ -67,75 +64,20 @@ namespace DigitalRuby.RainMaker
             {
                 Camera.main.transform.Translate(speed, 0.0f, 0.0f);
             }
-            if (Input.GetKeyDown(KeyCode.F))
-            {
-                FlashlightToggle.isOn = !FlashlightToggle.isOn;
-            }
         }
 
-        private void UpdateMouseLook()
-        {
-            if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.M))
-            {
-                MouseLookToggle.isOn = !MouseLookToggle.isOn;
-            }
-
-            if (!MouseLookToggle.isOn)
-            {
-                return;
-            }
-            else if (axes == RotationAxes.MouseXAndY)
-            {
-                // Read the mouse input axis
-                rotationX += Input.GetAxis("Mouse X") * sensitivityX;
-                rotationY += Input.GetAxis("Mouse Y") * sensitivityY;
-
-                rotationX = ClampAngle(rotationX, minimumX, maximumX);
-                rotationY = ClampAngle(rotationY, minimumY, maximumY);
-
-                Quaternion xQuaternion = Quaternion.AngleAxis(rotationX, Vector3.up);
-                Quaternion yQuaternion = Quaternion.AngleAxis(rotationY, -Vector3.right);
-
-                transform.localRotation = originalRotation * xQuaternion * yQuaternion;
-            }
-            else if (axes == RotationAxes.MouseX)
-            {
-                rotationX += Input.GetAxis("Mouse X") * sensitivityX;
-                rotationX = ClampAngle(rotationX, minimumX, maximumX);
-
-                Quaternion xQuaternion = Quaternion.AngleAxis(rotationX, Vector3.up);
-                transform.localRotation = originalRotation * xQuaternion;
-            }
-            else
-            {
-                rotationY += Input.GetAxis("Mouse Y") * sensitivityY;
-                rotationY = ClampAngle(rotationY, minimumY, maximumY);
-
-                Quaternion yQuaternion = Quaternion.AngleAxis(-rotationY, Vector3.right);
-                transform.localRotation = originalRotation * yQuaternion;
-            }
-        }
 
         public void RainSliderChanged(float val)
         {
             RainScript.RainIntensity = val;
         }
 
-        public void MouseLookChanged(bool val)
-        {
-            MouseLookToggle.isOn = val;
-        }
+    
 
-        public void FlashlightChanged(bool val)
-        {
-            FlashlightToggle.isOn = val;
-            Flashlight.enabled = val;
-        }
-
-        public void DawnDuskSliderChanged(float val)
-        {
-            Sun.transform.rotation = Quaternion.Euler(val, 0.0f, 0.0f);
-        }
+        // public void DawnDuskSliderChanged(float val)
+        // {
+        //     Sun.transform.rotation = Quaternion.Euler(val, 0.0f, 0.0f);
+        // }
 
         public void FollowCameraChanged(bool val)
         {
@@ -155,7 +97,6 @@ namespace DigitalRuby.RainMaker
         {
             UpdateRain();
             UpdateMovement();
-            UpdateMouseLook();
         }
 
         public static float ClampAngle(float angle, float min, float max)
