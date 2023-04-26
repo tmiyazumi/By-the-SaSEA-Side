@@ -7,6 +7,9 @@ public class SceneLoader : MonoBehaviour
 {
     public void LoadScene()
     {
-        SceneManager.SetActiveScene(SceneManager.GetSceneByPath("Assets/Scenes/MainIslandScene.unity"));
+        Scene islandScene = SceneManager.GetSceneByName("MainIslandScene");
+        SceneManager.LoadScene(1, LoadSceneMode.Additive);
+
+        SceneManager.SetActiveScene(SceneManager.GetSceneByName("MainIslandScene"));
     }
 }
