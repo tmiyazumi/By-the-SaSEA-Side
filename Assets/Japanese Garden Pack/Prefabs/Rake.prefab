@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2340638}
   - component: {fileID: 3386422095192247294}
   - component: {fileID: 5572198319580692692}
-  - component: {fileID: 8160460741789085353}
+  - component: {fileID: 4039896998921156492}
   m_Layer: 0
   m_Name: Rake
   m_TagString: Untagged
@@ -218,8 +218,8 @@ MonoBehaviour:
   m_ForceGravityOnDetach: 0
   m_RetainTransformParent: 1
   m_AttachPointCompatibilityMode: 0
---- !u!64 &8160460741789085353
-MeshCollider:
+--- !u!65 &4039896998921156492
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -228,7 +228,6 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300030, guid: fe9ba93f508bf1849bce40f4ae043ed2, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 0.02, y: 0.010000013, z: 0.063207015}
+  m_Center: {x: -0.000011444103, y: 0.010000084, z: 0.06978848}
